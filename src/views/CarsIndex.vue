@@ -1,29 +1,27 @@
 <template>
-  <div class="home">
+  <div class="cars-index">
     <h1>All Cars</h1>
     <div v-for="car in cars">
-      <h2>{{ car.model }}</h2>
+      <h2>{{ car.make }}</h2>
+      
     </div>
   </div>
 </template>
 
-<style>
-</style>
-
 <script>
 import axios from "axios";
-
 export default {
   data: function() {
     return {
-      cars: []
+      cars: [],
     };
   },
   created: function() {
     axios.get("/api/cars").then(response => {
+      console.log("cars index", response);
       this.cars = response.data;
     });
   },
-  methods: {}
+  methods: {},
 };
 </script>
