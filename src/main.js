@@ -4,7 +4,7 @@ import router from './router';
 import axios from 'axios';
 
 axios.defaults.baseURL = 
-  process.env.NODE_ENV === "development" ? "https://safe-hamlet-90202.herokuapp.com/" : "https://github.com/acnikzad/cars_fe/";
+  process.env.NODE_ENV === "development" ? "http://localhost:3000" : "https://be-cars.herokuapp.com/";
 
 Vue.config.productionTip = false;
 
