@@ -46,15 +46,24 @@
                     <div class="row">
                       <h1>All Cars</h1>
                     </div>
+                    <br>
                     <div class="row">
-                      <div class="col span_3_of_12" v-for="car in cars">
-                        <h2>{{ car.make }}</h2>
-                        <ul class="alt">
-                          <li>{{ car.model}} {{ car.submodel}}</li>
-                          <li>{{ car.color }}</li>
-                          <li>{{ car.year}}</li>
-                        </ul>
-                          <button v-on:click="destroyCar(car);">Delete Car</button>
+                      <div>
+                        <button v-on:click="setSortAttribute('make')">Sort by Make</button>
+                        <button v-on:click="setSortAttribute('year')">Sort by Year</button>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col span_3_of_12">
+                        <div v-for="car in orderBy(sortAttribute)">
+                          <h2>{{ car.make }}</h2>
+                          <ul class="alt">
+                            <li>{{ car.model}} {{ car.submodel}}</li>
+                            <li>{{ car.color }}</li>
+                            <li>{{ car.year}}</li>
+                          </ul>
+                            <button v-on:click="destroyCar(car);">Delete Car</button>
+                        </div>
                       </div>
                     </div>
                   <!-- </div> -->
@@ -83,7 +92,9 @@ export default {
       newCarModel:"",
       newCarSubmodel:"",
       newCarColor:"",
-      newCarYear:""
+      newCarYear:"",
+      sortAttribute:'make',
+      sortOrder: 1
     };
   },
   created: function() {
@@ -115,6 +126,10 @@ export default {
         this.cars.splice(index, 1);
         el.remove();
       });
+    },
+    setSortAttribute: function(theAttribute) {
+      console.log("working");
+      this.sortAttribute = theAttribute;
     }
   }
 };
