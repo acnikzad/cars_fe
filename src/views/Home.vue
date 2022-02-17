@@ -54,16 +54,14 @@
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col span_3_of_12">
-                        <div v-for="car in orderBy(sortAttribute)">
-                          <h2>{{ car.make }}</h2>
-                          <ul class="alt">
-                            <li>{{ car.model}} {{ car.submodel}}</li>
-                            <li>{{ car.color }}</li>
-                            <li>{{ car.year}}</li>
-                          </ul>
-                            <button v-on:click="destroyCar(car);">Delete Car</button>
-                        </div>
+                      <div class="col span_3_of_12" v-for="car in cars">
+                        <h2>{{ car.make }}</h2>
+                        <ul class="alt">
+                          <li>{{ car.model}} {{ car.submodel}}</li>
+                          <li>{{ car.color }}</li>
+                          <li>{{ car.year}}</li>
+                        </ul>
+                          <button v-on:click="destroyCar(car);">Delete Car</button>
                       </div>
                     </div>
                   <!-- </div> -->
@@ -128,7 +126,7 @@ export default {
       });
     },
     setSortAttribute: function(theAttribute) {
-      console.log("working");
+      console.log("working")
       this.sortAttribute = theAttribute;
     }
   }
