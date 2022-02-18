@@ -62,6 +62,7 @@
                           <li>{{ car.year}}</li>
                         </ul>
                           <button v-on:click="destroyCar(car);">Delete Car</button>
+                          <button v-on:click="destroyCar(car);">Delete Car</button>
                       </div>
                     </div>
                   <!-- </div> -->
